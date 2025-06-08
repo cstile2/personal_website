@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar_flex">
+        <div id="corner_text">colsen_stiles</div>
+        <div class="buttons">
+          <button class="navbutton">home</button>
+          <button class="navbutton">projects</button>
+          <button class="navbutton">blog</button>
+          <button class="navbutton">contact</button>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <div class = "header">Handmade 3D Game Engine (C/C++/Zig)</div>
+      <img src="assets/images/screen.png" class="screenshot" />
+
+      <div class="spacer"></div>
+
+      <div class="body_text">
+        This passion project is a fully featured game engine framework designed to be immediately useful without sacrificing low-level power. It emphasizes utility, scalability, and adaptability, with minimal dependencies (more details here).
+      </div>
+      <div class = "body_text">Here is a list of features that I implemented from scratch:</p>
+      <ul>
+        <li>
+          GLTF (JSON) parser + importer
+          <ul>
+            <li>
+              Takes in 3D asset files and imports them into your game application with a single function call!
+            </li>
+            <li>
+              Creates a parse tree representation of the file, which is used to reconstruct the data in-engine.
+            </li>
+            <li>
+              Supports 3D meshes, animations, textures, and materials.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Animation System
+          <ul>
+            <li>
+              Full support for 3D animations.
+            </li>
+            <li>
+              Animation blending and transitions work efficiently.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Data-Oriented Entity Component System
+          <ul>
+            <li>
+              A dynamic system that replaces inheritance by using collections of components. Anything can become anything else in your game.
+            </li>
+            <li>
+              Component data is stored in contiguous arrays, saving storage over traditional plain structs with fields.
+            </li>
+            <li>
+              The "Archetype" technique is used to optimize for entity iteration speed, which is huge for having lots of game objects!
+            </li>
+          </ul>
+        </li>
+        <li>
+          Physically Based Render (PBR)
+          <ul>
+            <li>
+              Uses industry-standard PBR (physically based rendering) techniques to create realistic visuals.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Collision System
+          <ul>
+            <li>
+              Ray-casts, time-of-impact calculation, GJK-based collision detection and solver.
+            </li>
+          </ul>
+          <ul>
+            <li>
+              Octree-based spatial acceleration structure to narrow only to potential collisions.
+            </li>
+          </ul>
+          <ul>
+            <li>
+              Collision functions come in general-use variants and single-use variants.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Multithreaded Parallelism
+          <ul>
+            <li>
+              Worker threads are used to process entities in parallel.
+            </li>
+          </ul>
+          <ul>
+            <li>
+              The audio engine uses a dedicated thread without using mutex locks.
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class = "spacer"></div>
+
+      <div class="header">Other Thing</div>
+      <img src="assets/images/screen.png" class="screenshot" />
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

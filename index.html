@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="navbar_flex">
+        <div id="corner_text">colsen_stiles</div>
+        <div class="buttons">
+          <button class="navbutton">home</button>
+          <button class="navbutton">experience</button>
+          <button class="navbutton">projects</button>
+          <button class="navbutton">contact</button>
+          <button class="navbutton">blog</button>
+        </div>
+      </div>
+    </div>
+    <div class="text">
+      <div class="horizon">
+        <!-- <canvas id = "glcanvas"></canvas> -->
+        <video src="assets/videos/beach.mp4" autoplay muted playsinline loop id="glcanvas"></video>
+        <div class="horizon_inner">
+          <img src="assets/images/me.png" class="icon" />
+          <div class="vertical">
+            <div class="main_title">Colsen Stiles</div>
+            <div class="sub_title">Computer Science at UIUC</div>
+            <div class="sub_title">
+              <div class="contact_list">
+                <div>colsenstiles@gmail.com</div>
+                |
+                <a id="linkedin" href="https://www.linkedin.com/in/colsen-stiles/" target="_blank">linkedin</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="body_text">Hi! My name is Colsen Stiles. I graduated from the University of Illinois at Urbana-Champaign (UIUC) with a Bachelor's Degree in Statistics and Computer Science. I am currently looking for a career in a CS-related field such as software engineering, data science, cyber-security, and more! If you want to get in touch, please message me!</div>
+
+      <div class="spacer"></div>
+
+      <div class="section_title">Experience</div>
+      <div class="header">Data Structure Course Assistant at University of Illinois at Urbana-Champaign</div>
+      <div class="body_text">Hello</div>
+
+      <div class="spacer"></div>
+
+      <div class="section_title">Projects</div>
+      <div class="header">Handmade 3D Game Engine (C/C++/Zig)</div>
+      <img src="assets/images/screen.png" class="screenshot" />
+
+      <div class="body_text">This passion project is a fully featured game engine framework designed to be immediately useful without sacrificing low-level power. It emphasizes utility, scalability, and adaptability, with minimal dependencies (<a class="link" href="game_engine.html">more details here</a>). In order to ensure that this engine is well designed, I used it to create a multiplayer shooter game, which are often cited as being hard to implement.</div>
+      <div class="body_text">Here is a list of the biggest features that I implemented from scratch:</div>
+      <div class="body_text">
+        <ul>
+          <li>
+            3D Asset Importer (GLTF/JSON Parser)
+            <ul>
+              <li>Takes in 3D asset files and imports them into your game application with a single function call!</li>
+              <li>Creates a parse tree representation of the file, which is used to reconstruct the data in-engine.</li>
+              <li>Supports 3D meshes, animations, textures, and materials.</li>
+            </ul>
+          </li>
+          <li>
+            Animation System
+            <ul>
+              <li>Full support for 3D animations.</li>
+              <li>Animation blending and transitions work efficiently.</li>
+            </ul>
+          </li>
+          <li>
+            Data-Oriented Entity Component System
+            <ul>
+              <li>A dynamic system that replaces inheritance by using collections of components. Anything can become anything else in your game.</li>
+              <li>Component data is stored in contiguous arrays, saving storage over traditional plain structs with fields.</li>
+              <li>The "Archetype" technique is used to optimize for entity iteration speed, which is huge for having lots of game objects!</li>
+            </ul>
+          </li>
+          <li>
+            Physically Based Renderer (PBR)
+            <ul>
+              <li>Uses industry-standard PBR (physically based rendering) techniques to create realistic visuals.</li>
+            </ul>
+            <ul>
+              <li>OpenGL backend.</li>
+            </ul>
+          </li>
+          <li>
+            Physics Collision System
+            <ul>
+              <li>Ray-casts, time-of-impact calculation, GJK-based collision detection and solver.</li>
+            </ul>
+            <ul>
+              <li>Octree-based spatial acceleration structure to narrow only to potential collisions.</li>
+            </ul>
+            <ul>
+              <li>Collision functions come in general-use variants and low-level variants.</li>
+            </ul>
+          </li>
+          <li>
+            Multithreaded Parallelism
+            <ul>
+              <li>Worker threads are used to process entities in parallel where there aren't data dependencies.</li>
+            </ul>
+            <ul>
+              <li>The audio engine uses a dedicated thread without using mutex locks.</li>
+            </ul>
+          </li>
+          <li>
+            Networking Framework
+            <ul>
+              <li>Network channels and RPC's are used to make netcode fast to write and easy to read. Perfect for changing specs!</li>
+            </ul>
+            <ul>
+              <li>Has been used to create a fast-paced multiplayer shooter game (the hardest practical use case I could think of).</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <div class="spacer"></div>
+
+      <div class="header">Fast-Paced Multiplayer Shooter Game</div>
+      <img src="assets/images/screen.png" class="screenshot" />
+
+      <div class="body_text">This is a game I implemented using my custom game engine.</div>
+
+      <div class="body_text">
+        <ul>
+          <li>
+            Fast-Paced, Real-Time Netcode
+            <ul>
+              <li>
+                Server Authority
+                <ul>
+                  <li>Server's application state is the source of truth.</li>
+                  <li>Everything simulates on a single server machine, ensuring perfectly consistent gameplay interactions.</li>
+                  <li>Clients cannot affect game state - only their own inputs. This restricts malicious clients from tampering with the server.</li>
+                </ul>
+              </li>
+              <li>
+                Client-Side Prediction
+                <ul>
+                  <li>Certain interactions are vital to user experience and latency-sensitive, such as player movement and controls.</li>
+                  <li>The control input data gets sent to the server, but we can also use it on the client to predict player movement in a latency-free way.</li>
+                  <li>The predictions are rarely corrected by the server if needed.</li>
+                  <li>The result is latency-free user interactions! This is state of the art.</li>
+                </ul>
+              </li>
+              <li>
+                Fast, Reliable UDP Communication
+                <ul>
+                  <li>UDP is used over TCP for its speed and low overhead, however it is unreliable and leads to bad experience if used directly.</li>
+                  <li>Taking advantage of the game loop, I achieve reliability by sending redundant packets over multiple frames.</li>
+                  <li>Network messages are buffered on the server to trade latency for consistency - adapts to poor network conditions!</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="spacer"></div>
+      <div class="section_title">Contact</div>
+      <div class="header">E-Mail</div>
+      <div class="body_text">colsenstiles@gmail.com</div>
+      <div class="header">Linkedin</div>
+      <div class="body_text"><a id="linkedin" href="https://www.linkedin.com/in/colsen-stiles/" target="_blank">https://www.linkedin.com/in/colsen-stiles/</a></div>
+      <div class="spacer"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
